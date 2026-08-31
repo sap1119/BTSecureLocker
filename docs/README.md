@@ -52,6 +52,15 @@ make it happen.
   wiring, including a pin-level circuit diagram.
 - **[hardware/bill-of-materials.md](hardware/bill-of-materials.md)** — every
   part with values, quantities and purpose.
+- **[hardware/component-working.md](hardware/component-working.md)** — how each
+  component *works*: the operating principle inside every chip/module, and what
+  the firmware does to drive it.
+
+## Where this project can go
+
+- **[future-advancements.md](future-advancements.md)** — the roadmap: moving to
+  an ESP8266/ESP32/Arduino controller, and future security layers (face unlock,
+  fingerprint, one-time passwords, IoT logging, physical hardening).
 
 ## Testing & verification
 

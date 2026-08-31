@@ -230,9 +230,10 @@ secure-locker/
 │   ├── README.md             ← documentation index
 │   ├── getting-started.md    ← beginner guide (what an MCU is, how this works)
 │   ├── architecture.md       ← module map, boot sequence, main-loop state machine
+│   ├── future-advancements.md← roadmap: bigger MCUs, biometrics, IoT (face, fingerprint)
 │   ├── registers/            ← ★ REGISTER-LEVEL reference (the big one)
 │   ├── firmware/             ← per-module flow docs (auth, BT, menu, log…)
-│   ├── hardware/             ← connections, pin-level schematic, bill of materials
+│   ├── hardware/             ← connections, schematic, BOM, component working
 │   └── testing/              ← compile-verification + bench-test procedure
 ├── images/vector_board.jpeg  ← photo of the built board
 ├── .github/workflows/build.yml ← CI: compile-check every source on every push
@@ -301,8 +302,16 @@ Start with these, in this order:
    audit log.
 5. **[docs/hardware/connections.md](docs/hardware/connections.md)** — full
    wiring, including a pin-level circuit diagram.
-6. **[docs/testing/bench-test-procedure.md](docs/testing/bench-test-procedure.md)** —
+6. **[docs/hardware/component-working.md](docs/hardware/component-working.md)** —
+   how each component works on the inside, and what the firmware does to drive
+   it.
+7. **[docs/testing/bench-test-procedure.md](docs/testing/bench-test-procedure.md)** —
    the first power-on sequence.
+
+Looking ahead? **[docs/future-advancements.md](docs/future-advancements.md)** is
+the roadmap: moving to an ESP8266/ESP32/Arduino controller, plus future security
+layers — face unlock, fingerprint, one-time passwords, IoT logging, and physical
+hardening.
 
 There is also a real captured serial-log session to read alongside the docs:
 [`firmware/examples/1.TXT`](firmware/examples/1.TXT).
