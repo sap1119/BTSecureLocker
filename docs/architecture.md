@@ -4,6 +4,9 @@ This page is the map. It tells you what each source file owns, how the chip is
 brought up, and how the main loop's state machine works. Everything here was
 read out of the actual source in `firmware/` — no behaviour is invented.
 
+> Want the *picture* version? [**flowchart.md**](flowchart.md) draws every one
+> of these flows as visual charts, from "user sends `1234#`" to "motor opens".
+
 If you want to go *deeper*, each peripheral has a register-level page under
 [`registers/`](registers/README.md).
 
@@ -170,6 +173,9 @@ The complete net map (every pin, function, and driver) is in
 - The repo also compiles without Keil: see
   [compile-verification.md](testing/compile-verification.md) for the exact
   `arm-none-eabi-gcc` command the CI workflow runs.
-- Nothing here has ever been bench-tested on real hardware — where a value is
+- The core system has been bench-tested on the physical board. The one
+  hardware-dependent exception is the **external battery-backed RTC** (not
+  bench-tested — it needs the DS1307/DS3231 chip + coin cell physically
+  fitted); the future-advancements roadmap is design only. Where a value is
   hardware-dependent (e.g. `MOTOR_ROTATE_MS`), the code comment says so and
   tells you how to tune it.

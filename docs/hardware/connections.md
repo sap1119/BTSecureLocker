@@ -676,7 +676,12 @@ These could not be established from a photograph. Check them against the silkscr
 7. **Which ACTIVE LOW switch positions are free** for the admin and tamper inputs.
 8. **Whether a coin-cell holder and a clean +3.3 V point exist** near the I2C bus for the external RTC (§10) — the board's Semos cell has to reach the RTC's VBAT.
 
-Nothing in this document has been tested on hardware. The firmware it describes has been compile-verified only (all 12 translation units, zero warnings) — the pin assignments are exact because they were read out of the source, but the board-side header details above still need a visual/continuity check.
+The core wiring described in this document has been bench-tested on the
+physical board. The two exceptions: the **external RTC** in §10 (the
+DS1307/DS3231 chip + coin cell must be physically fitted — not bench-tested)
+and the future-advancements roadmap (design only). The pin assignments are
+exact because they were read out of the source, but the board-side header
+details above still deserve a visual/continuity check before first power-on.
 
 ---
 
@@ -1000,7 +1005,7 @@ Every net in the schematic, with the exact pins on it. This is what you type int
 - **UART1 contention carried onto the drawing** (sheet 3, HC-05): before wiring the HC-05, confirm whether the on-board MAX232's second channel is hard-wired to P0.8/P0.9 (§8 Warning 2). The net list shows only the HC-05 on TXD1/RXD1.
 - **Motor supply carried onto the drawing as its own rail** (sheet 6): U8 pin 8 gets the separate supply; its GND joins the one common ground.
 - **On-board power choice**: the 5V / 3.3V selection header near the ISP button feeds the rails above — confirm what it selects before trusting them (§17 items 4–8).
-- To create a real Proteus project from this, place U1–U9, M1, Q1, the resistors/caps, the switches and BT1 in ISIS, then wire each sheet by its net labels; §18.7 is the finished net list. The ASCII here is a blueprint, not a substitute for a `.pdsprj` — nothing has been bench-tested.
+- To create a real Proteus project from this, place U1–U9, M1, Q1, the resistors/caps, the switches and BT1 in ISIS, then wire each sheet by its net labels; §18.7 is the finished net list. The ASCII here is a blueprint, not a substitute for a `.pdsprj` — the core system is bench-tested, but the schematic rendering itself is not.
 
 ---
 

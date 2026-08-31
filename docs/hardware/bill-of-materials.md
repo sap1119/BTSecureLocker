@@ -3,11 +3,14 @@
 Every part the system needs, with the value, quantity, purpose and whether it
 is already on the Vector development board or must be supplied externally.
 
-> ⚠ **Honest caveat.** Nothing here has been bench-tested. The values below
-> come from the schematic and the firmware source (pull-ups, timings, voltages
-> were read out of `defines.h` / `connections.md`, not guessed), but the board
-> has never been assembled and measured. See [Connections §17](../hardware/connections.md)
-> for the items that still need a visual/continuity check on the physical board.
+> ⚠ **Honest caveat.** The core system has been bench-tested on the physical
+> board. The one exception in this parts list is the **external RTC** — the
+> DS1307/DS3231 + coin cell is *not* bench-tested here because the chip must be
+> physically fitted (the firmware auto-detects it). The future-advancements
+> roadmap is design only. The values below come from the schematic and the
+> firmware source (pull-ups, timings, voltages were read out of `defines.h` /
+> `connections.md`, not guessed); [Connections §17](../hardware/connections.md)
+> lists the items that still deserve a visual/continuity check on your board.
 
 ## Quick summary
 

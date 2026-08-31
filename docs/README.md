@@ -14,6 +14,9 @@ below if you know what you're looking for.
 
 - **[architecture.md](architecture.md)** — the module map (12 C files), the
   exact boot sequence, and the main-loop state machine.
+- **[flowchart.md](flowchart.md)** — the *picture* version: the whole system
+  drawn as detailed visual flowcharts (boot, POST, main loop, two-factor
+  auth, motor, lockout, tamper, admin).
 
 ### Behaviour-level flow docs (`docs/firmware/`)
 

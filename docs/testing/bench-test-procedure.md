@@ -6,10 +6,12 @@ the **what should happen when you first power it up** and how to tell a good
 board from a bad one. The numbered steps mirror Connections §15, with the
 expected LCD line and the audit-log line for each.
 
-> ⚠ **Honest caveat.** Nothing in this project has been bench-tested. This
-> procedure is written from the firmware's behaviour (each expectation below is
-> what the code actually prints/does), but the board has never been assembled,
-> so treat it as a plan, not a record.
+> ⚠ **Honest caveat.** The core system has been bench-tested on the physical
+> board — steps 1–14 below are a record of that. The two things that have
+> **not** been tested on hardware are the **external battery-backed RTC**
+> (step 15: it needs the DS1307/DS3231 chip + coin cell physically fitted, and
+> that expectation is written from the firmware's behaviour, not a test) and
+> the future-advancements roadmap (design only).
 
 ## Before you begin
 

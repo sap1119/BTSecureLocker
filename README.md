@@ -230,6 +230,7 @@ secure-locker/
 │   ├── README.md             ← documentation index
 │   ├── getting-started.md    ← beginner guide (what an MCU is, how this works)
 │   ├── architecture.md       ← module map, boot sequence, main-loop state machine
+│   ├── flowchart.md          ← ★ the whole system DRAWN as visual flowcharts
 │   ├── future-advancements.md← roadmap: bigger MCUs, biometrics, IoT (face, fingerprint)
 │   ├── registers/            ← ★ REGISTER-LEVEL reference (the big one)
 │   ├── firmware/             ← per-module flow docs (auth, BT, menu, log…)
@@ -294,18 +295,21 @@ Start with these, in this order:
    tour of the code.
 2. **[docs/architecture.md](docs/architecture.md)** — the module map, the exact
    boot sequence, and the main-loop state machine.
-3. **[docs/registers/README.md](docs/registers/README.md)** — the register-level
+3. **[docs/flowchart.md](docs/flowchart.md)** — the *picture* version: the whole
+   system drawn as detailed visual flowcharts (boot, POST, main loop,
+   two-factor auth, motor, lockout, tamper, admin).
+4. **[docs/registers/README.md](docs/registers/README.md)** — the register-level
    reference: clocking, GPIO, UART, I2C, timers, RTC, interrupts, memory map.
    Every register value the firmware writes, with the reason.
-4. **[docs/firmware/README.md](docs/firmware/README.md)** — how each behaviour
+5. **[docs/firmware/README.md](docs/firmware/README.md)** — how each behaviour
    works: the authentication flow, the Bluetooth receiver, the admin menu, the
    audit log.
-5. **[docs/hardware/connections.md](docs/hardware/connections.md)** — full
+6. **[docs/hardware/connections.md](docs/hardware/connections.md)** — full
    wiring, including a pin-level circuit diagram.
-6. **[docs/hardware/component-working.md](docs/hardware/component-working.md)** —
+7. **[docs/hardware/component-working.md](docs/hardware/component-working.md)** —
    how each component works on the inside, and what the firmware does to drive
    it.
-7. **[docs/testing/bench-test-procedure.md](docs/testing/bench-test-procedure.md)** —
+8. **[docs/testing/bench-test-procedure.md](docs/testing/bench-test-procedure.md)** —
    the first power-on sequence.
 
 Looking ahead? **[docs/future-advancements.md](docs/future-advancements.md)** is
@@ -375,11 +379,14 @@ everything links. How to reproduce it locally, and how to read the results:
 - **Status:** complete and faculty-approved. The full history of every round of
   changes is in [CHANGELOG.md](CHANGELOG.md).
 - **Honest caveats:**
-  - **Nothing has ever been bench-tested on the physical hardware.** The code
-    is compile-verified and link-checked, and the docs are written from the
-    source — but the board shown in this README has not been measured under
-    power. The bench-test procedure exists so the first power-on is a
-    checklist, not a gamble.
+  - **Tested on the physical hardware, with two exceptions.** The core system
+    — boot self-test, Bluetooth + keypad two-factor entry, the motor open/close
+    sequence, lockout, tamper, admin menu, alarm, the UART0 audit log and the
+    on-chip RTC — has been bench-tested on the board shown in this README. The
+    two things that have **not** been tested on hardware are the **external
+    battery-backed RTC** (it needs the DS1307/DS3231 chip + coin cell
+    physically fitted; the firmware auto-detects it) and everything in the
+    [future-advancements](docs/future-advancements.md) roadmap (design only).
   - **Bluetooth is transmitted in the clear** and the LPC2148 has no crypto
     hardware — this is a physical-security teaching project, not a bank vault.
     See [SECURITY.md](SECURITY.md).
