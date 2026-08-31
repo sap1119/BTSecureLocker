@@ -1,0 +1,82 @@
+# =============================================================================
+# SecureLocker CI — compile-check every firmware translation unit
+#
+# Runs on every push and pull request. It reproduces the project's documented
+# compile-verification exactly: every .c file must compile under
+#   arm-none-eabi-gcc -c -O1 -Wall -Wextra -std=c89 -I. -Ivendor -D__irq=
+# with zero warnings from project code, and a link check must leave only
+# strcmp / __aeabi_uidiv unresolved (both supplied by libc / the compiler
+# runtime).
+#
+# The vendored device header (firmware/vendor/LPC214x.h) makes this work with
+# NO Keil installed.
+# =============================================================================
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compile:
+    name: Compile-check (arm-none-eabi-gcc, C89)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install ARM GNU toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi
+
+      - name: Compile every translation unit
+        working-directory: firmware
+        run: |
+          set -euo pipefail
+          for f in *.c; do
+            echo ">> $f"
+            arm-none-eabi-gcc -c -O1 -Wall -Wextra -std=c89 \
+              -I. -Ivendor -D__irq= "$f" -o "/tmp/${f%.c}.o"
+          done
+
+      - name: Verify no project warnings were emitted
+        working-directory: firmware
+        run: |
+          set -euo pipefail
+          # Recompile to a log and fail on any warning mentioning a project file.
+          # The vendored LPC214x.h may emit one pre-existing "#endif" warning;
+          # anything else from project code is a real failure.
+          : > /tmp/build.log
+          for f in *.c; do
+            arm-none-eabi-gcc -c -O1 -Wall -Wextra -std=c89 \
+              -I. -Ivendor -D__irq= "$f" -o "/tmp/${f%.c}.o" 2>> /tmp/build.log
+          done
+          if grep -E "warning:" /tmp/build.log | grep -v "vendor/LPC214x.h"; then
+            echo "Project code produced warnings:"
+            cat /tmp/build.log
+            exit 1
+          fi
+          echo "Clean: zero warnings from project code."
+
+      - name: Link check — only strcmp / __aeabi_uidiv unresolved
+        working-directory: firmware
+        run: |
+          set -euo pipefail
+          # Relocatable-link all objects together: this resolves every
+          # intra-project reference, so the only symbols left undefined are
+          # genuine external dependencies (libc strcmp + compiler-runtime
+          # __aeabi_uidiv). A per-object `nm -u` would list cross-module
+          # references and falsely fail.
+          arm-none-eabi-gcc -r -o /tmp/all.o /tmp/*.o
+          undef=$(arm-none-eabi-nm -u /tmp/all.o | awk '{print $2}' | sort -u)
+          echo "Undefined symbols:"; echo "$undef"
+          bad=$(echo "$undef" | grep -vE '^(strcmp|__aeabi_uidiv)$' || true)
+          if [ -n "$bad" ]; then
+            echo "Unexpected undefined symbols: $bad"
+            exit 1
+          fi
+          echo "Link check OK."

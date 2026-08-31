@@ -1,0 +1,26 @@
+# EditorConfig - http://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# The firmware is strict C89 for the embedded toolchain; keep tabs as the
+# indentation style already used in the sources.
+[*.{c,h,s}]
+indent_style = tab
+indent_size = 4
+
+[*.{md,txt}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2

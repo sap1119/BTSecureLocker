@@ -1,0 +1,93 @@
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+[01/01/2024 12:08:43] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:08:43] Level-1 Bluetooth password matched
+[01/01/2024 12:24:38] Level-2 keypad password matched
+[01/01/2024 12:24:38] Access granted, opening locker
+[01/01/2024 12:24:39] Locker opened
+[01/01/2024 12:24:45] Locker closed
+[01/01/2024 12:25:40] Admin menu exit
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+[01/01/2024 12:05:09] Bluetooth authentication request received
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+[01/01/2024 12:00:34] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:00:34] Level-1 Bluetooth password matched
+[01/01/2024 12:00:44] Wrong Level-2 keypad password
+[01/01/2024 12:00:53] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:00:54] Level-1 Bluetooth password matched
+[01/01/2024 12:00:59] Level-2 keypad password matched
+[01/01/2024 12:00:59] Access granted, opening locker
+[01/01/2024 12:00:59] Locker opened
+[01/01/2024 12:01:05] Locker closed
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+[01/01/2024 12:00:16] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:00:16] Level-1 Bluetooth password matched
+[01/01/2024 12:00:22] Wrong Level-2 keypad password
+[01/01/2024 12:01:34] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:01:34] Level-1 Bluetooth password matched
+[01/01/2024 12:01:39] Wrong Level-2 keypad password
+[01/01/2024 12:02:15] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:02:15] Level-1 Bluetooth password matched
+[01/01/2024 12:02:22] Level-2 keypad password matched
+[01/01/2024 12:02:22] Access granted, opening locker
+[01/01/2024 12:02:23] Locker opened
+[01/01/2024 12:02:28] Locker closed
+[01/01/2024 12:04:02] Password change failed: wrong old password
+[01/01/2024 12:04:46] Password update failed: mismatch
+[01/01/2024 12:05:00] Password change failed: wrong old password
+[01/01/2024 12:05:12] Password change failed: wrong old password
+[01/01/2024 12:05:35] Password update failed: mismatch
+[01/01/2024 12:05:48] Password change failed: wrong old password
+[01/01/2024 12:05:58] Password change failed: wrong old password
+[01/01/2024 12:06:13] Password change failed: wrong old password
+[01/01/2024 12:06:26] Password change failed: wrong old password
+[01/01/2024 12:06:44] Password change failed: wrong old password
+[01/01/2024 12:06:59] Password change failed: wrong old password
+[01/01/2024 12:07:23] Admin menu exit
+[01/01/2024 12:07:53] Password change failed: wrong old password
+[01/01/2024 12:08:08] Password change failed: wrong old password
+[01/01/2024 12:08:42] Password update failed: mismatch
+[01/01/2024 12:09:15] Admin menu exit
+[01/01/2024 12:10:31] Admin menu exit
+[01/01/2024 12:10:45] Password change failed: wrong old password
+[01/01/2024 12:10:57] Password change failed: wrong old password
+[01/01/2024 12:11:08] Password change failed: wrong old password
+[01/01/2024 12:11:35] Password change failed: wrong old password
+[01/01/2024 12:11:43] Password change failed: wrong old password
+[01/01/2024 12:12:09] Password updated and verified in EEPROM
+[01/01/2024 12:12:23] Password change failed: wrong old password
+
+====================================
+ Bluetooth Secure Locker Started
+====================================
+[01/01/2024 12:00:00] System booted
+[01/01/2024 12:01:31] Bluetooth authentication request received
+DEBUG: received='1234' stored L1='1234'
+[01/01/2024 12:01:31] Level-1 Bluetooth password matched
+[01/01/2024 12:01:39] Wrong Level-2 keypad password

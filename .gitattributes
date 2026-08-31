@@ -1,0 +1,16 @@
+# Normalise line endings on check-out (auto keeps CRLF on Windows, LF on
+# Unix), but never touch binary files.
+* text=auto
+
+# Explicit declarations for the firmware sources
+*.c  text
+*.h  text
+*.s  text
+*.md text
+*.txt text
+
+# Binary artifacts - never line-convert
+*.hex binary
+*.jpeg binary
+*.jpg binary
+*.png binary

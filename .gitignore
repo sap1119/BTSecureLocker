@@ -1,0 +1,54 @@
+# =============================================================================
+# SecureLocker - .gitignore
+# Ignore build artifacts, IDE droppings and OS/cloud junk. Source files and the
+# Keil project (majorproject12.uvproj / majorproject12.sct / Startup.s) are
+# committed deliberately so the repo builds out of the box.
+# =============================================================================
+
+# --- Keil uVision build artifacts -------------------------------------------
+*.o
+*.crf
+*.d
+*.axf
+*.map
+*.lst
+*.htm
+*.dep
+*.bak
+*.lnp
+*.tra
+*.plg
+*.uvopt
+*.uvgui.*
+
+# The stale / 0-byte / broken Keil files from an older machine are never
+# committed. The LIVE project is majorproject12.uvproj + majorproject12.sct,
+# which ARE tracked.
+majorproject.uvproj
+majorproject.uvopt
+majorproject.sct
+
+# --- ARM compiler / linker droppings ----------------------------------------
+*.elf
+*.bin
+*.out
+*.log
+
+# --- IDE / editor -----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.suo
+*.user
+
+# --- OS junk ----------------------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- OneDrive / cloud sync junk ---------------------------------------------
+*.one
+*.onetoc2
+*.tmp
