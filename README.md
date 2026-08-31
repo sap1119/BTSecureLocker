@@ -238,6 +238,7 @@ secure-locker/
 │   └── testing/              ← compile-verification + bench-test procedure
 ├── images/vector_board.jpeg  ← photo of the built board
 ├── .github/workflows/build.yml ← CI: compile-check every source on every push
+├── SUBMISSION_NOTES.md        ← the ready-to-print submission/abstract document
 ├── LICENSE                   ← MIT
 ├── CHANGELOG.md              ← what changed in each round
 ├── CONTRIBUTING.md           ← fork guide, PR workflow, code style
